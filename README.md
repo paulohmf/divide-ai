@@ -70,3 +70,58 @@ Esperamos que nossa Ferramenta de Divisão de Conta de Bar seja útil e facilite
 
 ## Backlog do Sprint 
 
+- *História #1:* Como usuário, eu gostaria de cadastrar uma despesa no Divide Ai
+- *Tarefas e responsáveis:*
+Implementar tela de cadastro [Gabriela]
+Adaptar tela principal para incluir opção de editar despesas [Paulo]
+Implementar no backend a lógica de cadastro e edição de despesas [Luis]
+Integrar tela de cadastro com a respectiva lógica no backend [Rafael]
+
+- *História #2:* Como usuário, eu gostaria de criar um grupo para divisão de despesas no Divide Ai
+- *Tarefas e responsáveis:*
+Implementar tela de criação de grupo [Luis]
+Adaptar tela principal para incluir opção de editar informações do grupo e opção de exclusão do grupo [Rafael]
+Implementar no backend a lógica de cadastro e edição do grupo[Gabriela]
+Integrar tela de cadastro com a respectiva lógica no backend [Paulo]
+
+- *História #3:*  Como usuário, eu gostaria de convidar novas pessoas para se juntarem a um grupo no Divide Ai
+- *Tarefas e responsáveis:*
+Implementar tela de adição de pessoas no grupo [Paulo]
+Adaptar tela principal para incluir opção de retirar pessoas do grupo [Luis]
+Implementar no backend a lógica de cadastro e edição de pessoas ao grupo[Rafael]
+Integrar tela de cadastro com a respectiva lógica no backend [Gabriela]
+
+
+- *História #4:* Como usuário, eu gostaria de dividir uma despesa de forma personalizada no Divide Ai, especificando diferentes percentagens de contribuição para cada pessoa.
+- *Tarefas e responsáveis:*
+Implementar tela de edição de despesas no grupo [Paulo]
+Adaptar tela principal para incluir opção de editar percentual para cada integrante do grupo [Luis]
+Implementar no backend a lógica de inclusão de percentual a pagar para cada integrante do grupo[Rafael]
+Integrar tela de cadastro com a respectiva lógica no backend [Gabriela]
+
+- *História #5:* Como usuário, eu gostaria de categorizar despesas no Divide Ai, como alimentação, transporte ou entretenimento, para melhor organizar meus gastos
+- *Tarefas e responsáveis:*
+Implementar tela de edição de tipo despesas no grupo [Paulo]
+Adaptar tela principal para incluir opção de cadastrar e editar tipos de despesas [Luis]
+Implementar no backend a lógica de inclusão de tipo de despesas[Rafael]
+Integrar tela de cadastro com a respectiva lógica no backend [Gabriela]
+
+- *História #6:* Como usuário, eu gostaria de marcar despesas como "liquidadas" no Divide Ai para indicar que uma dívida foi paga, mantendo um histórico claro de transações.
+- *Tarefas e responsáveis:*
+Implementar tela de marcação de despesas quitadas [Paulo]
+Adaptar tela principal para marcar despesa como quitada [Luis]
+Implementar no backend a lógica de marcar despesa como quitada[Rafael]
+Integrar tela de cadastro com a respectiva lógica no backend [Gabriela]
+
+- *História #7:* Como usuário, eu gostaria de ver um resumo das minhas despesas no Divide Ai, incluindo o total gasto e o valor que cada pessoa pagou ou está devendo.
+- *Tarefas e responsáveis:*
+Implementar tela de resumo de despesas [Paulo]
+Adaptar tela principal para mostrar total gasto e valor pago por cada pessoa [Luis]
+Implementar no backend a lógica de somar despesa total e de cada pessoa no grupo[Rafael]
+Integrar tela de cadastro com a respectiva lógica no backend [Gabriela]
+
+- *História #8:*  Como usuário, eu gostaria de adicionar uma nota ou descrição a uma despesa no Divide Ai para fornecer informações adicionais sobre o que foi gasto.
+- *Tarefas e responsáveis:*
+Implementar na tela de resumo de despesas a opção de descrição/nota [Paulo]
+Implementar no backend a lógica de incluir e editar descrição/nota de gastos[Rafael/Luis]
+Integrar tela de cadastro com a respectiva lógica no backend [Gabriela]
