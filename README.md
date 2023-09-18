@@ -1,4 +1,4 @@
-# Divide Ai - Ferramenta de Divisão de Conta de Bar
+# Divide Aí - Ferramenta de Divisão de Conta de Bar
 
 Esta aplicação foi criada para facilitar a divisão de despesas após um encontro no bar entre amigos. Com a ajuda desta ferramenta, você e seus amigos podem facilmente calcular quem deve quanto e garantir uma divisão justa da conta.
 
