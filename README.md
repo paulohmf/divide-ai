@@ -125,3 +125,35 @@ Integrar tela de cadastro com a respectiva lógica no backend [Gabriela]
 Implementar na tela de resumo de despesas a opção de descrição/nota [Paulo]
 Implementar no backend a lógica de incluir e editar descrição/nota de gastos[Rafael/Luis]
 Integrar tela de cadastro com a respectiva lógica no backend [Gabriela]
+
+
+Para rodar o projeto: 
+Antes de começar, certifique-se de ter o seguinte instalado no seu sistema:
+
+- [Node.js](https://nodejs.org/) (versão 12 ou superior)
+- [PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/) (certifique-se de criar um banco de dados para o projeto)
+
+## Instalação
+
+Siga os passos abaixo para configurar e executar o projeto:
+
+1. Na raiz do projeto:
+
+    npm install
+
+2. Depois, vá para o diretório client e faça o mesmo:
+
+    npm install
+
+3. A configuração do banco:
+Abra o arquivo db.js no diretório raiz do projeto.
+Edite as configurações de conexão com o PostgreSQL para corresponder às suas configurações locais (usuário, senha, host, etc.).
+
+## Execução
+
+Na raiz, execute:
+    node app.js
+
+Na pasta client:
+    npm start
+
