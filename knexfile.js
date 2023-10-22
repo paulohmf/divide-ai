@@ -9,10 +9,10 @@ module.exports = {
         port: 5433
       },
       migrations: {
-        directory: './db/migrations', // Crie um diretório 'migrations' para armazenar suas migrações
+        directory: './adaptadores/adaptador-db/migrations', // Crie um diretório 'migrations' para armazenar suas migrações
       },
       seeds: {
-        directory: './db/seeds', // Opcional: crie um diretório 'seeds' para dados iniciais
+        directory: './adaptadores/adaptador-db/seeds', // Opcional: crie um diretório 'seeds' para dados iniciais
       },
     },
   };
