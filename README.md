@@ -148,6 +148,8 @@ Siga os passos abaixo para configurar e executar o projeto:
 3. A configuração do banco:
 Abra o arquivo db.js no diretório raiz do projeto.
 Edite as configurações de conexão com o PostgreSQL para corresponder às suas configurações locais (usuário, senha, host, etc.).
+Rode o seguinte comando para executar as migrações, criar as tabelas no banco de dados e popular ele inicialmente:
+    npx knex migrate:latest
 
 ## Execução
 
