@@ -1,4 +1,4 @@
-const { Group, Person } = require('../models');
+const { Group, Person } = require('../dominio');
 
 exports.createPerson = async (req, res) => {
   try {

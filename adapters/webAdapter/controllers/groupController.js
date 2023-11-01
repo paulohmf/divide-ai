@@ -1,6 +1,6 @@
-const { Group } = require('../models');
+const { Group } = require('../dominio');
 
-const { Group, Person } = require('../models');
+const { Group, Person } = require('../dominio');
 
 exports.createGroup = async (req, res) => {
   try {
