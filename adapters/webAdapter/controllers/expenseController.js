@@ -1,4 +1,11 @@
-const { Expense, Team, Person } = require('../models');
+const path = require('path');
+const Expense = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Expense'));
+const Team = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Team'));
+const Person = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Person'));
+
+// const Team  = require('../../../../application/domain/Team');
+// const Person = require('../../../../application/domain/Person');
+// const Expense = require('../../../../application/domain/Expense');
 
 exports.createExpense = async (req, res) => {
   const { name, price, split, category, status, description, teamId, personIds } = req.body;

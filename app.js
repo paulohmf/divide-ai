@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const config = require('./config/config');
-const { sequelize } = require('./config/database');
+const config = require('./config');
+const sequelize = require('./database');
+
+const Expense = require('./application/domain/Expense');
+const Team = require('./application/domain/Team');
+const Person = require('./application/domain/Person');
 
 const app = express();
 
@@ -10,9 +14,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routes
-const expenseRoutes = require('./routes/expenseRoutes');
-const teamRoutes = require('./routes/teamRoutes');
-const personRoutes = require('./routes/personRoutes');
+const expenseRoutes = require('./adapters/webAdapter/routes/expenseRoutes');
+const teamRoutes = require('./adapters/webAdapter/routes/teamRoutes');
+const personRoutes = require('./adapters/webAdapter/routes/personRoutes');
 
 app.get('/', (req, res) => {
   res.send('Hello, World!');
@@ -22,8 +26,13 @@ app.use('/api/expenses', expenseRoutes);
 app.use('/api/teams', teamRoutes);
 app.use('/api/people', personRoutes);
 
-const port = config.port || 3000;
-
-sequelize.sync().then(() => {
-  app.listen(port, () => console.log(`Server running on port ${port}`));
-});
+// Sync Sequelize models with the database
+sequelize.sync()
+  .then(() => {
+    app.listen(config.port || 3000, () => {
+      console.log(`Server running on port ${config.port || 3000}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Error syncing with the database:', error);
+  });

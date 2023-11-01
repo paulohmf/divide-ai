@@ -12,7 +12,7 @@ router.put('/:id', personController.updatePersonById);
 
 router.delete('/:id', personController.deletePersonById);
 
-router.post('/add-to-group', personController.addPersonToGroup);
+router.post('/add-to-team', personController.addPersonToTeam);
 
 module.exports = router;
 

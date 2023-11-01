@@ -1,6 +1,9 @@
-const { Team } = require('../dominio');
+const path = require('path');
+const Team = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Team'));
+const Person = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Person'));
 
-const { Team, Person } = require('../dominio');
+// const { Team  } = require('../../../../application/domain/Team');
+// const { Person } = require('../../../../application/domain/Person');
 
 exports.createTeam = async (req, res) => {
   try {

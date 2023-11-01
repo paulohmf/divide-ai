@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/database');
+const { sequelize } = require('../../database');
+const Team = require('./Team'); 
+const Person = require('./Person');
 
 // POST
 // {
@@ -40,7 +42,7 @@ const Expense = sequelize.define('Expense', {
   },
 });
 
-Expense.belongsTo(Group);
+Expense.belongsTo(Team);
 Expense.belongsToMany(Person, { through: 'ExpensePerson' });
 Person.belongsToMany(Expense, { through: 'ExpensePerson' });
 
