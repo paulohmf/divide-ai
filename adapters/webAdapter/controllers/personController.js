@@ -1,4 +1,4 @@
-const { Group, Person } = require('../dominio');
+const { Team, Person } = require('../dominio');
 
 exports.createPerson = async (req, res) => {
   try {
@@ -69,22 +69,22 @@ exports.deletePersonById = async (req, res) => {
   }
 };
 
-exports.addPersonToGroup = async (req, res) => {
-  const { personId, groupId } = req.body;
+exports.addPersonToTeam = async (req, res) => {
+  const { personId, teamId } = req.body;
 
   try {
-    // Check if both person and group exist
+    // Check if both person and team exist
     const person = await Person.findByPk(personId);
-    const group = await Group.findByPk(groupId);
+    const team = await Team.findByPk(teamId);
 
-    if (!person || !group) {
-      return res.status(404).json({ error: 'Person or group not found' });
+    if (!person || !team) {
+      return res.status(404).json({ error: 'Person or team not found' });
     }
 
-    // Add person to the group
-    await person.addGroup(group);
+    // Add person to the team
+    await person.addTeam(team);
 
-    res.status(200).json({ message: 'Person added to the group successfully' });
+    res.status(200).json({ message: 'Person added to the team successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });

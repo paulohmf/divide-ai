@@ -6,7 +6,7 @@ const pool = new Pool({
   host: 'localhost',
   database: "divide_ai",
   password: 'postgres',
-  port: 5433,
+  port: 5432,
 });
 
 module.exports = pool;

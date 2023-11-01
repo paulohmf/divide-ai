@@ -1,12 +1,12 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 
-const Group = sequelize.define('Group', {
+const Team = sequelize.define('Team', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
 });
 
-module.exports = Group;
+module.exports = Team;
 
