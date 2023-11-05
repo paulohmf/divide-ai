@@ -2,7 +2,10 @@ const path = require('path');
 const Expense = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Expense'));
 const Team = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Team'));
 const Person = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Person'));
+const ExpensePerson = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'ExpensePerson'));
 
+
+//const PersonExpense = require('../../models/PersonExpense'); // Adjust the path as needed
 // const Team  = require('../../../../application/domain/Team');
 // const Person = require('../../../../application/domain/Person');
 // const Expense = require('../../../../application/domain/Expense');
@@ -38,9 +41,19 @@ exports.createExpense = async (req, res) => {
       description,
     });
     
-    // Set associations
+    // // Set associations
     await expense.setTeam(team);
-    await expense.setPeople(people);
+    for (let i = 0; i < personIds.length; i++) {
+      const personId = personIds[i];
+      const person = people.find((p) => p.id === personId);
+      const share = split[i];
+
+      await expense.addPerson(person, {
+        through: {
+          share: price * share,
+        },
+      });
+    }
 
     res.status(201).json(expense);
   } catch (error) {
@@ -115,7 +128,17 @@ exports.updateExpenseById = async (req, res) => {
 
     // Set associations
     await expense.setTeam(team);
-    await expense.setPeople(people);
+    for (let i = 0; i < personIds.length; i++) {
+      const personId = personIds[i];
+      const person = people.find((p) => p.id === personId);
+      const share = split[i];
+
+      await expense.addPerson(person, {
+        through: {
+          share: price * share,
+        },
+      });
+    }
 
     res.status(200).json(expense);
   } catch (error) {

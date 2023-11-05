@@ -14,5 +14,7 @@ router.delete('/:id', personController.deletePersonById);
 
 router.post('/add-to-team', personController.addPersonToTeam);
 
+router.get('/:personId/summary', personController.getPersonSummary);
+
 module.exports = router;
 

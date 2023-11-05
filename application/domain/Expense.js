@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../database');
 const Team = require('./Team'); 
 const Person = require('./Person');
+const ExpensePerson = require('./ExpensePerson');
 
 // POST
 // {
@@ -43,7 +44,17 @@ const Expense = sequelize.define('Expense', {
 });
 
 Expense.belongsTo(Team);
-Expense.belongsToMany(Person, { through: 'ExpensePerson' });
-Person.belongsToMany(Expense, { through: 'ExpensePerson' });
+Expense.belongsToMany(Person, {
+  through: {
+    model: ExpensePerson,
+    unique: true,
+  },
+});
+Person.belongsToMany(Expense, {
+  through: {
+    model: ExpensePerson,
+    unique: true,
+  },
+});
 
 module.exports = Expense;

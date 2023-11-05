@@ -1,9 +1,53 @@
 const path = require('path');
 const Team = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Team'));
 const Person = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Person'));
+const Expense = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Expense'));
 
 // const { Team  } = require('../../../../application/domain/Team');
 // const { Person } = require('../../../../application/domain/Person');
+const sequelize = require('../../../database');
+
+exports.getPersonSummary = async (req, res) => {
+  const { personId } = req.params;
+
+  try {
+    // Check if person exists
+    const person = await Person.findByPk(personId);
+    if (!person) {
+      return res.status(404).json({ error: 'Person not found' });
+    }
+
+    // Get the person's expenses with stratification
+    const expenseSummary = await Expense.findAll({
+      attributes: [
+        [sequelize.fn('SUM', sequelize.col('price')), 'totalAmount'],
+        [sequelize.literal('"Team"."name"'), 'teamName'],
+        [sequelize.literal('"Expense"."category"'), 'category'],
+        [sequelize.literal('"Expense"."status"'), 'status'],
+      ],
+      include: [
+        {
+          model: Person,
+          attributes: ['id', 'name'],
+          through: { attributes: [] },
+          where: { id: personId },
+        },
+        {
+          model: Team,
+          attributes: [],
+        },
+      ],
+      group: ['Team.name', 'Expense.id', 'Expense.category', 'Expense.status', 'People.id', 'People.name'],
+    });
+
+
+    res.status(200).json(expenseSummary);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 
 exports.createPerson = async (req, res) => {
   try {
