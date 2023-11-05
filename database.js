@@ -6,5 +6,4 @@ const sequelize = new Sequelize('divide_ai', 'postgres', 'postgres', {
   port: 5432,
 });
 
-module.exports = { sequelize };
-
+module.exports = sequelize;
