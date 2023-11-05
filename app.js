@@ -21,6 +21,18 @@ const personRoutes = require('./adapters/webAdapter/routes/personRoutes');
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
+app.get('/login', (req, res) => {
+  res.send('Login');
+});
+app.get('/groups', (req, res) => {
+  res.send('Grupos');
+});
+app.get('/groups/:id', (req, res) => {
+  res.send('Grupo x');
+});
+app.get('/expenses', (req, res) => {
+  res.send('Despesas');
+});
 
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/teams', teamRoutes);
