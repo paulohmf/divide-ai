@@ -2,6 +2,7 @@ const path = require('path');
 const Team = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Team'));
 const Person = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Person'));
 const Expense = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'Expense'));
+const ExpensePerson = require(path.join(__dirname, '..', '..', '..', 'application', 'domain', 'ExpensePerson'));
 
 // const { Team  } = require('../../../../application/domain/Team');
 // const { Person } = require('../../../../application/domain/Person');
@@ -17,31 +18,54 @@ exports.getPersonSummary = async (req, res) => {
       return res.status(404).json({ error: 'Person not found' });
     }
 
-    // Get the person's expenses with stratification
-    const expenseSummary = await Expense.findAll({
-      attributes: [
-        [sequelize.fn('SUM', sequelize.col('price')), 'totalAmount'],
-        [sequelize.literal('"Team"."name"'), 'teamName'],
-        [sequelize.literal('"Expense"."category"'), 'category'],
-        [sequelize.literal('"Expense"."status"'), 'status'],
-      ],
-      include: [
-        {
-          model: Person,
-          attributes: ['id', 'name'],
-          through: { attributes: [] },
-          where: { id: personId },
-        },
-        {
-          model: Team,
-          attributes: [],
-        },
-      ],
-      group: ['Team.name', 'Expense.id', 'Expense.category', 'Expense.status', 'People.id', 'People.name'],
+    const teamShare = await ExpensePerson.findAll({
+      attributes: ['ExpenseId', 'share'],
+      where: { PersonId: personId },
     });
 
+    const enrichedTeamShare = await Promise.all(teamShare.map(async (share) => {
+      const { ExpenseId, share: shareValue } = share.get();
 
-    res.status(200).json(expenseSummary);
+      const expense = await Expense.findByPk(ExpenseId, {
+        attributes: ['category', 'status', 'TeamId'],
+        include: [
+          {
+            model: Team,
+            attributes: ['id', 'name'],
+          },
+        ],
+      });
+
+      return {
+        ExpenseId,
+        share: shareValue,
+        category: expense.category,
+        status: expense.status,
+        TeamId: expense.TeamId,
+        TeamName: expense.Team ? expense.Team.name : null,
+      };
+    }));
+
+
+    const groupedShare = enrichedTeamShare.reduce((result, share) => {
+      const { category, TeamName, status, share: shareValue } = share;
+
+      result[TeamName] = result[TeamName] || { total: 0 };
+
+      result[TeamName][category] = result[TeamName][category] || { total: 0 };
+
+      result[TeamName][category][status] = (result[TeamName][category][status] || 0) + shareValue;
+
+      result[TeamName].total += shareValue;
+      result[TeamName][category].total += shareValue;
+
+      return result;
+    }, {});
+
+    //console.log(enrichedTeamShare);
+    //console.log(groupedShare);
+
+    res.status(200).json(groupedShare);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
