@@ -16,23 +16,23 @@ function Login() {
   return (
     
    
-  <div class="login-container">
-    <div class="header">
-        <div class="app-info">
+  <div className="login-container">
+    <div className="header">
+        <div className="app-info">
           
-          <div class="app-name">Divide Ai</div>
+          <div className="app-name">Divide Ai</div>
         </div>
       </div>
     <form>
-      <div class="form-group">
+      <div className="form-group">
         <label for="username">Usuário:</label>
         <input type="text" id="username" name="username" placeholder="Seu email" required></input>
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" placeholder="Sua senha" required></input>
       </div>
-      <div class="submit-button">
+      <div className="submit-button">
         <button onClick={handleLogin} type="submit">Entrar</button>
       </div>
     </form>
