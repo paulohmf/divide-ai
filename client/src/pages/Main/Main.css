@@ -77,3 +77,333 @@ body {
       border-radius: 5px;
       cursor: pointer;
     }
+
+    .header-background-dashboard {
+      background-color: #5bc5a7;
+      overflow:hidden;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    
+    .header-dashboard {
+      width:960px;
+      display:block;
+      color: white;
+      margin: 0 auto;
+    }
+    .header-logo-dashboard {
+      float:left;
+      letter-spacing: 15px;
+      font-size: 20px;
+    }
+    
+    .header-list-dashboard {
+      float: right;
+    }
+    
+    .header-list-dashboard li {
+      float:left;
+      list-style: none;
+    }
+    
+    .nav-button-logout {
+      text-align: center;
+      background: #ff652f;
+      color: #fff;
+      text-shadow: 0 -1px 0 #c83400;
+      border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+      border-radius: 5px;
+      font-size: 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+      border: 1px solid #ccc;
+      padding: 2px 5px;
+      margin-right: 10px;
+      font-family: 'Helvetica Neue';
+    }
+    
+    .nav-button-logout:hover {
+      cursor: pointer;
+    }
+    
+    .dashboard-center-container {
+      width: 960px;
+      min-width: 980px;
+      overflow: hidden;
+      margin: 0 auto;
+      font-family: "Helvetica Neue";
+    }
+    
+    .dashboard-left {
+      width: 180px;
+      float: left;
+      margin-right:15px;
+    }
+    
+    .dashboard-center {
+      float: left;
+    }
+    
+    .dashboard-right {
+      float: left;
+    }
+    
+    .dashboard-center {
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+      width: 600px;
+      height:900px;
+    }
+    
+    .friends-list {
+      padding: 15px;
+      list-style: none;
+      color: #999;
+      font-family: 'Helvetica Neue';
+      font-size: 14px;
+    
+    }
+    
+    .friends-box {
+      background: #f6f6f6;
+      color: #ccc;
+      font-size: 11px;
+      text-transform: uppercase;
+      border-top: 1px solid #f3f3f3;
+      border-bottom: 1px solid #eee;
+      padding: 4px 0;
+      overflow: hidden;
+    }
+    
+    .friends-box h1 {
+      float:left;
+    }
+    
+    .friends-box div {
+      float:right;
+    }
+    
+    .friends-box:hover {
+      background: #eee;
+      color: #999;
+      border-top-color: #e9e9e9;
+      border-bottom-color: #e6e6e6;
+    }
+    
+    .friends-box div:hover {
+      cursor:pointer;
+    }
+    
+    .person-icon {
+      width:15px;
+      height:15px;
+      background-image: url('person-icon.png');
+      background-size: cover;
+      display:inline-block;
+      vertical-align: bottom;
+      margin-right: 3px;
+    
+    }
+    
+    .friends-list ul {
+      vertical-align: bottom;
+      margin-left: 5px;
+    
+    }
+    
+    .friends-list li {
+      padding-top: 5px;
+    }
+    
+    .dashboard-top-section {
+      background: #eee;
+    }
+    .dashboard-top {
+      overflow:hidden;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .dashboard-top h1 {
+      font-size: 24px;
+      font-weight: 500;
+      float: left;
+      margin-top: 15px;
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .dashboard-button-list {
+      float:right;
+      padding-top: 13px;
+      margin-right: 10px;
+    }
+    
+    .dashboard-button-list li {
+      float: right;
+      padding-right: 15px;
+      padding-top: 13px;
+      margin-left:5px;
+    }
+    
+    .dashboard-button-list li:hover {
+      cursor:pointer;
+    }
+    
+    button:hover {
+      cursor: pointer;
+    }
+    
+    .dashboard-button-list li:nth-child(2) {
+      background: #ff652f;
+      color: #fff;
+      text-shadow: 0 -1px 0 #c83400;
+      border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+      border-radius: 5px;
+      font-size: 14px;
+      padding: 9px 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+      border: 1px solid #ccc;
+    }
+    
+    .dashboard-button-list li:nth-child(2):hover {
+      background: #ff5216;
+    
+    }
+    
+    .dashboard-button-list li:nth-child(2n+1):hover {
+      background: #48be9d;
+    
+    }
+    
+    
+    .dashboard-button-list li:nth-child(2n+1) {
+      background: #5bc5a7;
+      color: #fff;
+      text-shadow: 0 -1px 0 #318970;
+      border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+      padding: 9px 14px;
+      font-size: 14px;
+      border-radius: 5px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+      border: 1px solid #ccc;
+    }
+    
+    .dashboard-bottom {
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      color: #999;
+      text-align: center;
+    }
+    
+    .amount-owe {
+      color: #ff652f;
+    }
+    
+    .amount-owed {
+      color: #5bc5a7;
+    
+    }
+    
+    .negative {
+      color: red;
+    }
+    
+    .positive {
+      color: #5bc5a7;
+    }
+    
+    .dashboard-block {
+      font-size: 13px;
+      display: inline-block;
+      width: 175px;
+      text-align: center;
+      padding: 10px;
+      line-height: 20px;
+    
+    }
+    
+    .dashboard-block-border {
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
+    
+    .payments-section {
+      padding: 10px;
+      background-color: #fff;
+      color: #999;
+      overflow: hidden;
+    }
+    .owe-titles {
+      overflow: hidden;
+      width: 580px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .owe-titles div:nth-child(1) {
+      float: left;
+    }
+    
+    .owe-titles div:nth-child(2) {
+      float: right;
+    }
+    
+    
+    .you-owe-half {
+      width: 289px;
+      float: left;
+      border-right: 1px solid #ddd;
+      margin-left: 10px;
+      color: black;
+    }
+    
+    .you-are-owed-half {
+      float: left;
+      padding-left: 15px;
+      color: black;
+    }
+    
+    .profile-pic {
+      width: 30px;
+      height: 30px;
+      background-image: url(person-profile.png);
+      background-size: cover;
+      display:inline-block;
+    
+    }
+    .profile-pic-header {
+      width: 20px;
+      height: 20px;
+      background-image: url(person-profile.png);
+      background-size: cover;
+      display:inline-block;
+      margin-right: 5px;
+    
+    }
+    
+    .you-owe-half li {
+      display:inline-block;
+    }
+    
+    .user-transaction {
+      width: 250px;
+      margin-bottom: 15px;
+    }
+    
+    .transaction-info-you-owe, .transaction-info-are-owed {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    
+    .transaction-info div:nth-child(1) {
+      color:black;
+    }
+    
+    .transaction-info-you-owe div:nth-child(2) {
+      color: #ff652f;
+    }
+    
+    .transaction-info-are-owed div:nth-child(2) {
+      color: #5bc5a7;
+    }
