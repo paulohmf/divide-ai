@@ -69,17 +69,18 @@ input {
   border-radius: 5px;
 }
 
-button {
-  background-color: #007BFF;
+.submit-button button {
+  background-color: #7A86F5;
   color: #fff;
   margin: auto;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-button:hover {
+.submit-button button:hover {
   background-color: #0056b3;
 }
 

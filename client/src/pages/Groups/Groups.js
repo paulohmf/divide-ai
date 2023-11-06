@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './Main.css';
+import './Groups.css';
 import React,{ useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
@@ -9,28 +9,58 @@ function Main() {
   useEffect(() => {
     // Mock de dados de grupos
     const mockGroups = [
-      { id: 1, name: 'Cervejas', status: 'R$ 40.00' },
-      { id: 2, name: 'Tira gosto', status: 'R$ 60.00' },
-      { id: 3, name: 'Refrigerante', status: 'R$ 15.00' },
+      { id: 1, name: 'Bar de quinta', status: 'Despesas pendentes' },
+      { id: 2, name: 'Viagem', status: 'Pago' },
+      { id: 3, name: 'Clube', status: 'Pago' },
     ];
 
     setGroups(mockGroups);
   }, []);
 
 
+  const [seeExpense, setSeeExpense] = useState(false);
+
   const [createExpense, setCreateExpense] = useState(false);
-  const handleExpense = () => {
+  const handleClick = () => {
     // Simular um processo de autenticação
     // Quando o login for bem-sucedido, defina loggedIn como true
     setCreateExpense(true);
   }
   if (createExpense) {
-    return <Navigate to="/expensesRegister" />;
+    return <Navigate to="/groups" />;
   }
-  
+  const handleClickExpenses = () => {
+    // Simular um processo de autenticação
+    // Quando o login for bem-sucedido, defina loggedIn como true
+    setSeeExpense(true);
+  }
+  if (createExpense) {
+    return <Navigate to="/expenses" />;
+  }
 
   return (
-    
+    // <div >
+    //   <div className='header'>
+    //     <div className="user-info">
+    //       <div className="user-name">Luís</div>
+    //       <div className="user-avatar"></div>
+    //     </div>
+    //     <button onClick={handleExpense} type="new-item-button">Despesas</button>
+    //   </div>
+    //   <div className = "group-list">
+    //     <div className="item-list">
+    //       <h4>Grupos de despesa</h4>
+    //       <ul>
+    //         <li>Padaria - Despesas pendentes</li>
+    //         <li>Viagem - Pago</li>
+    //         <li>Clube - Pago</li>
+    //       </ul>
+    //     </div>
+    //   </div>
+    //   <div className="div-button">
+    //     <button className="summary-button">Resumo</button>
+    //   </div>
+    // </div>
 
     <div>
         <div className="header-background-dashboard group">
@@ -62,7 +92,7 @@ function Main() {
             <section className="dashboard-top-section">
               <section className="dashboard-top">
 
-                <h1>Detalhes de grupo</h1>
+                <h1>Lista de grupos</h1>
 
                 <ul className="dashboard-button-list">
                   <li><button >Adicionar pessoa</button></li>
@@ -80,60 +110,29 @@ function Main() {
                 </div>
 
                 <div className="dashboard-block">
-                  <div className="dashboard-block-border">
+                  <div className="dashboard-block">
 
                     <div className="title">Minhas despesas</div>
-                    <div className="amount-owe">${24.46.toFixed(2)}</div>
+                    <div onClick={handleClick}  className="amount-owe">${24.46.toFixed(2)}</div>
                   </div>
 
                 </div>
 
-                
               </section>
             </section>
 
             <section className="payments-section">
-            <div className="group-list">
-          <h4>Grupos Bar de quinta</h4>
+        <div className="group-list">
+          <h4>Grupos de despesa</h4>
           <ul>
             {groups.map((group) => (
-              <li  key={group.id}>
+              <li onClick={handleClickExpenses}  key={group.id}>
                 {group.name} - {group.status}
               </li>
             ))}
           </ul>
         </div>
-              <div className="you-owe-half">
-
-                {/* {isEmpty(this.props.bills.you_owe) ? (
-
-                  <div>You do not owe anything</div>
-                ) : (
-                  <ul>
-                    {youOweUsers}
-
-                  </ul>
-                )} */}
-
-              </div>
-
-              <div className="you-are-owed-half">
-
-                {/* {isEmpty(this.props.bills.you_are_owed) ? (
-
-                  <div>You are not owed anything</div>
-                ) : (
-                  <ul>
-                    {youAreOwedUsers}
-
-                  </ul>
-                )} */}
-
-              </div>
-
-
-
-            </section>
+      </section>
 
           </div>
 
