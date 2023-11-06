@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, Routes } from "react-router-dom";
 import Main from './pages/Main/Main';
+import MainRoutes from './routes';
 import Login from './pages/Login/Login';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Main />
+    <MainRoutes />
   </React.StrictMode>
 );
 
