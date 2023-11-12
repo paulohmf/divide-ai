@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './Main.css';
+import './Expenses.css';
 import React,{ useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
@@ -9,9 +9,9 @@ function Main() {
   useEffect(() => {
     // Mock de dados de grupos
     const mockGroups = [
-      { id: 1, name: 'Cervejas', status: 'R$ 40.00' },
-      { id: 2, name: 'Tira gosto', status: 'R$ 60.00' },
-      { id: 3, name: 'Refrigerante', status: 'R$ 15.00' },
+      { id: 1, name: 'Cervejas', status: 'pago', value: 'R$ 12.00', group: 'Bar de quinta' },
+      { id: 2, name: 'Tira gosto', status: 'pendente', value: 'R$ 12.00', group: 'Bar de quinta' },
+      { id: 3, name: 'Refrigerante', status: 'pendente', value: 'R$ 12.00', group: 'Bar de quinta' },
     ];
 
     setGroups(mockGroups);
@@ -27,7 +27,6 @@ function Main() {
   if (createExpense) {
     return <Navigate to="/expensesRegister" />;
   }
-  
 
   return (
     
@@ -62,12 +61,10 @@ function Main() {
             <section className="dashboard-top-section">
               <section className="dashboard-top">
 
-                <h1>Detalhes de grupo</h1>
+                <h1>Minhas despesas</h1>
 
                 <ul className="dashboard-button-list">
-                  <li><button >Adicionar pessoa</button></li>
                   <li><button >Criar despesa</button></li>
-                  <li><button >Quitar Dívida</button></li>
                 </ul>
 
               </section>
@@ -82,7 +79,7 @@ function Main() {
                 <div className="dashboard-block">
                   <div className="dashboard-block-border">
 
-                    <div className="title">Minhas despesas</div>
+                    <div className="title">Pendentes</div>
                     <div className="amount-owe">${24.46.toFixed(2)}</div>
                   </div>
 
@@ -94,11 +91,11 @@ function Main() {
 
             <section className="payments-section">
             <div className="group-list">
-          <h4>Grupos Bar de quinta</h4>
+          <h4>Detalhes de despesas</h4>
           <ul>
             {groups.map((group) => (
-              <li  key={group.id}>
-                {group.name} - {group.status}
+              <li key={group.id}>
+                {group.name} - {group.status} - {group.value} - {group.group}
               </li>
             ))}
           </ul>
